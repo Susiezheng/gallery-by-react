@@ -23,18 +23,25 @@ function getDefaultModules() {
         loader: 'eslint-loader'
       }
     ],
+    //可以在js中直接require css文件
     loaders: [
       {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        test: /\.css$/,//test：正则表达式
+        //loader之间用！分割，从右往左执行
+        loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}'
       },
+      /*{
+        test: /\.json$/,
+        loader: 'json-loader'
+      },*/
       {
         test: /\.sass/,
+        //？后为loader的参数配置项
         loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded&indentedSyntax'
       },
       {
         test: /\.scss/,
-        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
+        loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}!sass-loader?outputStyle=expanded'
       },
       {
         test: /\.less/,
@@ -51,6 +58,10 @@ function getDefaultModules() {
       {
         test: /\.(mp4|ogg|svg)$/,
         loader: 'file-loader'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   };
