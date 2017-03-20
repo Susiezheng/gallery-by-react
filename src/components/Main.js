@@ -19,18 +19,38 @@ imageDatas = ((imageDatasArr) => {
 })(imageDatas);
 /*imageDatas=genImageURL(imageDatas);*/
 
+class ImgFigure extends React.Component{
+  render(){
+    return (
+      <figure className="img-figure">
+        <img src={this.props.data.imageURL} alt={this.props.data.title} />
+        <figcaption>
+          <h2 className="img-title">{this.props.data.title}</h2>
+        </figcaption>
+      </figure>
+      )
+  }
+};
+
 class AppComponent extends React.Component {
   render() {
+    let imgFigures = [],
+        controllerUnits = [];
+    imageDatas.forEach((value)=>{
+      imgFigures.push(<ImgFigure data={value} />);
+    })
     return (
-      <section className="stage">
-      <section className="img-sec">
-      </section>
-      <nav className="controller-nav">
-      </nav>
-      </section>
-    );
+        <section className="stage" >
+                <section className="img-sec">
+                    {imgFigures}
+                </section>
+                <nav className="controller-nav">
+                    {controllerUnits}
+                </nav>
+        </section>
+    )
   }
-}
+};
 
 AppComponent.defaultProps = {
 };
