@@ -22,7 +22,7 @@ module.exports = {
     //最终部署到服务器上的一个目录
     publicPath: defaultSettings.publicPath
   },
-  //封装一个webpack中间件，给webpack配一个服务器 
+  //封装一个webpack中间件，给webpack配一个服务器
   devServer: {
     contentBase: './src/',
     historyApiFallback: true,
