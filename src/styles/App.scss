@@ -26,13 +26,20 @@ html,body{
   overflow: hidden;
   background-color: #ddd;
 
-  @at-root{
+  @at-root {
+    .img-figure{
+      position: absolute;
+      width: 320px;
+      height: 360px;
+      margin: 0;
+      padding: 40px;
+      box-sizing: border-box;
+      background-color: #fff;
+      cursor: pointer;
 
+    }
   }
-  .img-figure{
 
-
-  }
 
 }
 /*image -- end */
