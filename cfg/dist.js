@@ -14,7 +14,6 @@ let config = Object.assign({}, baseConfig, {
   cache: false,
   devtool: 'sourcemap',
   plugins: [
-    //检测相似文件，去除冗余
     new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"'
@@ -22,12 +21,9 @@ let config = Object.assign({}, baseConfig, {
     new BowerWebpackPlugin({
       searchResolveModulesDirectories: false
     }),
-    //压缩js
     new webpack.optimize.UglifyJsPlugin(),
-    //按照应用频度来优化代码id，用得越频繁，id越短
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
-    //保证编译过程不能出错
     new webpack.NoErrorsPlugin()
   ],
   module: defaultSettings.getDefaultModules()

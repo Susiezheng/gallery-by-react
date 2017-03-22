@@ -15,14 +15,10 @@ module.exports = {
   debug: true,
   devtool: 'eval',
   output: {
-    //编译出来放到这个目录（assets）
     path: path.join(__dirname, '/../dist/assets'),
-    //最终编译为app.js这个文件
     filename: 'app.js',
-    //最终部署到服务器上的一个目录
     publicPath: defaultSettings.publicPath
   },
-  //封装一个webpack中间件，给webpack配一个服务器
   devServer: {
     contentBase: './src/',
     historyApiFallback: true,
@@ -31,9 +27,7 @@ module.exports = {
     publicPath: defaultSettings.publicPath,
     noInfo: false
   },
-  //使得require('.../src/styles/main.css')->require('styles/main.css')
   resolve: {
-    //根据数组里面的后缀顺序去寻找
     extensions: ['', '.js', '.jsx'],
     alias: {
       actions: `${defaultSettings.srcPath}/actions/`,
